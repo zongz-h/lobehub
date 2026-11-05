@@ -126,3 +126,23 @@ button {
     display: none !important;
   }
 }
+
+/* ---------------------------------------------------------------------------
+ * 深紫色主题
+ * 覆盖 @lobehub/ui 的 --lobe-color-bg-* 变量。运行时由 antd-style 注入到
+ * :root，这里用 !important 提高优先级，保证静态样式始终生效。
+ * ------------------------------------------------------------------------- */
+html,
+html[data-theme='dark'] {
+  --lobe-color-bg-layout: #180b2b !important;
+  --lobe-color-bg-base: #180b2b !important;
+  --lobe-color-bg-container: #22123c !important;
+  --lobe-color-bg-container-secondary: #1e1033 !important;
+  --lobe-color-bg-elevated: #2b1849 !important;
+  --lobe-color-bg-spotlight: #2b1849 !important;
+  --lobe-color-bg-blur: rgb(24 11 43 / 72%) !important;
+}
+
+body {
+  background-color: #180b2b !important;
+}

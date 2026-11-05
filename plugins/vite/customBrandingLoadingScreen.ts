@@ -2,7 +2,7 @@
 // imports that Node's type-stripping loader (which evaluates externalized
 // config-time imports) cannot resolve. branding.ts is a dependency-free leaf
 // exposed via the './branding' subpath — keep it import-free.
-import { BRANDING_NAME } from '@lobechat/business-const/branding';
+import { BRANDING_LOGO_URL, BRANDING_NAME } from '@lobechat/business-const/branding';
 import type { Plugin } from 'vite';
 
 const LOADING_BRAND_BLOCK = /<div id="loading-brand"[^>]*>[\S\s]*?<\/div>/;
@@ -26,11 +26,17 @@ export const customBrandingLoadingScreen = (): Plugin => ({
     handler(html) {
       if (BRANDING_NAME === 'LobeHub') return html;
 
+      const brandMarkup = BRANDING_LOGO_URL
+        ? `<img src="${escapeHtml(BRANDING_LOGO_URL)}" width="48" height="48" alt="${escapeHtml(
+            BRANDING_NAME,
+          )}" style="border-radius: 12px;" />`
+        : escapeHtml(BRANDING_NAME);
+
       return html.replace(
         LOADING_BRAND_BLOCK,
-        `<div id="loading-brand" aria-label="Loading" role="status" style="font-size: 26px; font-weight: 700; letter-spacing: 0.02em;">${escapeHtml(
+        `<div id="loading-brand" aria-label="Loading" role="status" style="display: flex; align-items: center; gap: 12px; font-size: 26px; font-weight: 700; letter-spacing: 0.02em;">${brandMarkup}<span>${escapeHtml(
           BRANDING_NAME,
-        )}</div>`,
+        )}</span></div>`,
       );
     },
     order: 'pre',

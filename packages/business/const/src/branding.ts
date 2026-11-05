@@ -2,10 +2,10 @@
 // if you want to use it in the commercial usage
 // please contact us for more information: hello@lobehub.com
 
-export const LOBE_CHAT_CLOUD = 'LobeHub Cloud';
+export const LOBE_CHAT_CLOUD = '知序智枢云';
 
-export const BRANDING_NAME = 'LobeHub';
-export const BRANDING_LOGO_URL = '';
+export const BRANDING_NAME = '知序智枢';
+export const BRANDING_LOGO_URL = '/branding/logo.png';
 
 /**
  * Display name of the built-in default assistant (the inbox agent).
@@ -16,9 +16,9 @@ export const BRANDING_LOGO_URL = '';
  * `DEFAULT_INBOX_TITLE` and the i18n brand post-processor, so overriding this
  * one constant renames the assistant everywhere.
  */
-export const BRANDING_INBOX_TITLE = 'Lobe AI';
+export const BRANDING_INBOX_TITLE = '知序智枢';
 
-export const ORG_NAME = 'LobeHub';
+export const ORG_NAME = '知序智枢';
 
 export const BRANDING_URL = {
   help: undefined,

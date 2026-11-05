@@ -4,8 +4,8 @@ const manifest = async (): Promise<MetadataRoute.Manifest> => {
   // Skip heavy module compilation in development
   if (process.env.NODE_ENV === 'development') {
     return {
-      background_color: '#000000',
-      description: 'LobeHub Development',
+      background_color: '#180b2b',
+      description: '知序智枢',
       display: 'standalone',
       icons: [
         {
@@ -14,10 +14,10 @@ const manifest = async (): Promise<MetadataRoute.Manifest> => {
           type: 'image/png',
         },
       ],
-      name: 'LobeHub',
-      short_name: 'LobeHub',
+      name: '知序智枢',
+      short_name: '知序智枢',
       start_url: '/',
-      theme_color: '#000000',
+      theme_color: '#180b2b',
     };
   }
 

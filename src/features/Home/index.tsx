@@ -23,7 +23,7 @@ import { useUserStore } from '@/store/user';
 import { authSelectors } from '@/store/user/slices/auth/selectors';
 
 import { HOME_ENTITY_PORTAL_SCOPE, isAcceptancePortalView } from './acceptancePortalView';
-import { isHomeMinimalLayout } from './CustomizeModal/config';
+import { HOME_WIDGET_KEYS, isHomeMinimalLayout } from './CustomizeModal/config';
 import HomeHeader from './HomeHeader';
 import HomeModeContent from './HomeModeContent';
 import HomePortrait from './HomePortrait';
@@ -336,8 +336,9 @@ const styles = createStaticStyles(({ css }) => ({
 const Home = memo(() => {
   const isLogin = useUserStore(authSelectors.isLogin);
   const showHomeRail = useGlobalStore(systemStatusSelectors.showHomeRail);
-  const showHomePortrait = useGlobalStore(systemStatusSelectors.showHomePortrait);
-  const hiddenWidgets = useGlobalStore(systemStatusSelectors.hiddenHomeWidgets);
+  const showHomePortrait = false;
+  // 强制极简：隐藏首页全部卡片（最近、任务、目标、新闻、推荐等）
+  const hiddenWidgets: string[] = [...HOME_WIDGET_KEYS];
   const promo = useHomePromoLine();
   const usageActive = useHomeUsageWidgetActive();
   const minimal = isHomeMinimalLayout(

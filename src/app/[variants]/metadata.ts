@@ -1,6 +1,5 @@
 import {
   APPLE_APP_STORE_ID,
-  BRANDING_LOGO_URL,
   BRANDING_NAME,
   ORG_NAME,
 } from '@lobechat/business-const';
@@ -29,7 +28,11 @@ export const generateMetadata = async (props: DynamicLayoutProps) => {
     },
     description: t('chat.description', { appName: BRANDING_NAME }),
     icons: isCustomBranding
-      ? BRANDING_LOGO_URL
+      ? {
+          apple: '/branding/apple-touch-icon.png',
+          icon: '/branding/favicon-32.png',
+          shortcut: '/branding/favicon-32.png',
+        }
       : {
           apple: '/apple-touch-icon.png?v=1',
           icon: isDev ? '/favicon-dev.ico' : '/favicon.ico?v=1',
